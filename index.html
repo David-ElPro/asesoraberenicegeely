@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berenice Román - Asesora GEELY</title>
+    <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/favico.svg">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +30,15 @@
             --glass-bg: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
         }
+        html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--light); color: var(--dark); overflow-x: hidden; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
         h1, h2, h3, .bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
 
         /* Navbar & Menú Mobile */
@@ -59,13 +67,20 @@
 
         /* Hero Section Dinámico */
         .hero {
-            position: relative; height: 100vh; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; text-align: center; color: white;
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
             overflow: hidden;
+            padding: 110px 16px 48px;
         }
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
+            background-size: cover; background-position: center center; background-repeat: no-repeat;
             transition: opacity 1s ease-in-out; opacity: 0; z-index: 1;
         }
         .hero-bg.active { opacity: 1; }
@@ -74,14 +89,28 @@
             background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8)); z-index: 2;
         }
 
-        .profile-container { position: relative; z-index: 3; margin-top: 40px; }
+        .profile-container {
+            position: relative;
+            z-index: 3;
+            margin-top: 0;
+            width: min(560px, 100%);
+            padding: 0 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .profile-pic {
             width: 160px; height: 160px; border-radius: 50%;
             border: 4px solid white; object-fit: cover;
             box-shadow: 0 0 30px rgba(255,255,255,0.4);
         }
-        .hero h1 { font-size: 3.5rem; margin-top: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.2rem; font-weight: 300; margin-bottom: 20px; }
+        .hero h1 {
+            font-size: clamp(2.6rem, 8vw, 4.2rem);
+            line-height: 0.9;
+            margin-top: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p { font-size: clamp(1rem, 3.6vw, 1.2rem); font-weight: 300; margin-bottom: 20px; }
 
         .social-links a {
             display: inline-flex; align-items: center; justify-content: center;
@@ -93,11 +122,13 @@
         .social-links a:hover { transform: translateY(-5px); background: var(--primary); border-color: var(--primary); }
 
         /* Botón Flotante WhatsApp */
-        .wa-float { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; align-items: center; }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; z-index: 1000; display: flex; align-items: center; gap: 10px; }
         .wa-tooltip {
-            background: white; color: var(--dark); padding: 10px 15px; border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); margin-right: 15px;
-            font-size: 0.9rem; font-weight: 600; opacity: 1; transition: opacity 0.5s ease; position: relative;
+            background: white; color: var(--dark); padding: 8px 10px; border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            max-width: 190px;
+            font-size: 0.78rem; line-height: 1.25; font-weight: 600; opacity: 1; transition: opacity 0.5s ease; position: relative;
+            white-space: normal;
         }
         .wa-tooltip::after {
             content: ''; position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
@@ -119,22 +150,47 @@
         .why-geely p { line-height: 1.8; color: #555; font-size: 1.1rem; }
 
         /* CARRUSEL GEELY (Diseño Oscuro Glassmorphism) */
-        .car-showroom { background: var(--darker); color: white; padding: 80px 0; text-align: center; position: relative; }
+        .car-showroom {
+            background: #000;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
         .car-showroom .logo-white { height: 50px; margin-bottom: 30px; }
-        .car-showroom h2 { color: white; font-size: 3.5rem; margin-bottom: 10px; }
+        .car-showroom h2 { color: white; font-size: clamp(2.4rem, 8vw, 3.5rem); margin-bottom: 10px; }
 
         .glass-pills {
-            display: inline-flex; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
-            border-radius: 50px; padding: 5px; border: 1px solid rgba(255, 255, 255, 0.2); margin-bottom: 40px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+            max-width: calc(100% - 24px);
         }
         .glass-pill {
             background: transparent; color: white; border: none; padding: 12px 30px;
-            border-radius: 50px; font-weight: 600; font-family: 'Montserrat', sans-serif; font-size: 1rem;
+            border-radius: 999px; font-weight: 600; font-family: 'Montserrat', sans-serif; font-size: 0.95rem;
             cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px;
+            white-space: nowrap;
         }
         .glass-pill.active { background: rgba(255, 255, 255, 0.2); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
-        .slider-container { display: flex; align-items: center; justify-content: center; max-width: 900px; margin: 0 auto; position: relative; }
+        .slider-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 8px;
+        }
         .slider-arrow {
             background: transparent; border: none; color: white; font-size: 3rem;
             cursor: pointer; padding: 20px; transition: 0.3s; z-index: 10; opacity: 0.7;
@@ -142,18 +198,41 @@
         .slider-arrow:hover { opacity: 1; transform: scale(1.1); }
 
         .car-display { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; }
-        .car-name { font-size: 4rem; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; }
+        .car-name { font-size: clamp(2.7rem, 11vw, 4rem); letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
 
-        .car-image-container { position: relative; width: 100%; max-width: 600px; height: 300px; display: flex; align-items: center; justify-content: center; }
+        .car-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: min(52vw, 300px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         .car-image-container::before {
-            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 70%; height: 70%; border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-            animation: pulse-glow 2s infinite alternate; z-index: 1; pointer-events: none;
+            content: '';
+            position: absolute;
+            top: 62%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 88%;
+            height: 68%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.72) 10%, rgba(255,255,255,0.36) 24%, rgba(255,255,255,0.12) 44%, rgba(255,255,255,0.02) 62%, rgba(255,255,255,0) 78%);
+            filter: blur(16px);
+            animation: pulse-glow 3s infinite ease-in-out;
+            z-index: 1;
+            pointer-events: none;
         }
         @keyframes pulse-glow {
-            0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            0%, 100% {
+                opacity: 0.45;
+                transform: translate(-50%, -50%) scale(0.98);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.14);
+            }
         }
         .car-display img { max-width: 100%; max-height: 100%; object-fit: contain; position: relative; z-index: 2; filter: drop-shadow(0 20px 20px rgba(0,0,0,0.5)); transition: opacity 0.3s; }
 
@@ -165,6 +244,120 @@
             transition: 0.3s; font-size: 1.1rem;
         }
         .glass-btn:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-3px); }
+
+        /* Entregas en carrusel */
+        .deliveries-section { background: #e9ecef; }
+        .deliveries-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .deliveries-intro {
+            text-align: center;
+            margin: -18px auto 30px;
+            max-width: 760px;
+            color: #666;
+            font-size: 1rem;
+        }
+        .deliveries-carousel {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            gap: 12px;
+            align-items: center;
+        }
+        .deliveries-viewport {
+            overflow: hidden;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            background: #0d0d0d;
+        }
+        .deliveries-track {
+            display: flex;
+            transition: transform 0.55s ease;
+            will-change: transform;
+        }
+        .delivery-card {
+            min-width: 100%;
+            position: relative;
+            aspect-ratio: 16 / 10;
+            background: #000;
+        }
+        .delivery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .delivery-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.08) 55%, rgba(0,0,0,0));
+        }
+        .delivery-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            padding: 18px 18px 20px;
+            color: white;
+        }
+        .delivery-caption span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .delivery-caption h3 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            line-height: 0.95;
+            letter-spacing: 2px;
+        }
+        .delivery-caption p {
+            max-width: 520px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .delivery-arrow {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.92);
+            color: var(--dark);
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            transition: 0.25s ease;
+        }
+        .delivery-arrow:hover { transform: translateY(-2px); background: white; }
+        .deliveries-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .delivery-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(0,0,0,0.18);
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+        .delivery-dot.active {
+            width: 28px;
+            background: var(--primary);
+        }
 
         /* Agendar Prueba (Booking Form Profesional) */
         .booking-section { background: white; border-radius: 20px; padding: 50px; margin: 40px auto; max-width: 800px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
@@ -206,6 +399,94 @@
         footer { background: var(--darker); color: white; text-align: center; padding: 40px 5%; margin-top: 40px; }
 
         .d-none { display: none !important; }
+
+        @media (max-width: 768px) {
+            nav { padding: 10px 4%; }
+            nav img.logo-nav { height: 32px; }
+            .hero { padding: 96px 12px 32px; }
+            .profile-pic { width: 132px; height: 132px; }
+            .hero h1 { font-size: clamp(2.45rem, 14vw, 3.2rem); }
+            .hero p { font-size: 1rem; }
+            .social-links a { width: 40px; height: 40px; margin: 0 6px; font-size: 1rem; }
+            .section-title { font-size: clamp(2.1rem, 9vw, 2.8rem); margin-bottom: 28px; }
+            .why-geely, .booking-section { padding: 28px 20px; }
+            .car-showroom { padding: 64px 0; }
+            .car-showroom .logo-white { height: 40px; margin-bottom: 20px; }
+            .glass-pills {
+                width: min(100%, 420px);
+                padding: 6px;
+                border-radius: 20px;
+                gap: 6px;
+            }
+            .glass-pill {
+                flex: 1 1 0;
+                justify-content: center;
+                padding: 9px 10px;
+                font-size: 0.7rem;
+                gap: 4px;
+            }
+            .slider-container { gap: 2px; }
+            .slider-arrow {
+                font-size: 2rem;
+                padding: 8px;
+            }
+            .car-name {
+                font-size: clamp(2.1rem, 11vw, 2.8rem);
+                margin-bottom: 12px;
+                text-shadow: 0 3px 16px rgba(0,0,0,0.9);
+                position: relative;
+                z-index: 3;
+            }
+            .car-image-container {
+                height: 230px;
+            }
+            .car-image-container::before {
+                top: 64%;
+                width: 92%;
+                height: 72%;
+                background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.78) 10%, rgba(255,255,255,0.4) 24%, rgba(255,255,255,0.14) 44%, rgba(255,255,255,0.02) 62%, rgba(255,255,255,0) 78%);
+                filter: blur(14px);
+                animation: pulse-glow 3s infinite ease-in-out;
+            }
+            .car-display img {
+                filter: drop-shadow(0 16px 16px rgba(0,0,0,0.55));
+            }
+            .glass-btn { font-size: 0.98rem; padding: 13px 24px; }
+            .glass-btn { margin-top: 22px; }
+            .deliveries-carousel {
+                grid-template-columns: 1fr;
+            }
+            .delivery-arrow {
+                display: none;
+            }
+            .delivery-card {
+                aspect-ratio: 4 / 5;
+            }
+            .delivery-caption h3 {
+                font-size: 2.2rem;
+            }
+            .delivery-caption p {
+                font-size: 0.88rem;
+            }
+            .gallery, .testimonials-container {
+                gap: 14px;
+            }
+            .testimonial-card {
+                min-width: 280px;
+            }
+            .map-container iframe { height: 320px; }
+            .wa-float { right: 16px; bottom: 16px; gap: 8px; }
+            .wa-tooltip {
+                max-width: 150px;
+                font-size: 0.72rem;
+                padding: 7px 9px;
+            }
+            .wa-btn {
+                width: 54px;
+                height: 54px;
+                font-size: 1.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -232,9 +513,11 @@
 <!-- Hero Section -->
 <header class="hero" id="inicio">
     <!-- Fondos dinámicos (Se controlan por JS) -->
-    <div class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80');"></div>
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80');"></div>
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&q=80');"></div>
+    <div class="hero-bg active" style="background-image: url('https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/cityraybere.jpeg');"></div>
+    <div class="hero-bg" style="background-image: url('https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/emgrandbere.jpeg');"></div>
+    <div class="hero-bg" style="background-image: url('https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/geelyex5bere.jpeg');"></div>
+    <div class="hero-bg" style="background-image: url('https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/geelyex5emibere.jpeg');"></div>
+    <div class="hero-bg" style="background-image: url('https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/geelystarraybere.jpeg');"></div>
 
     <div class="hero-overlay"></div>
 
@@ -243,10 +526,10 @@
         <h1>BERENICE ROMÁN</h1>
         <p>Tu Asesora Profesional GEELY</p>
         <div class="social-links">
-            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/share/1EhbB6xVyX/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@bere.asesorageely?_r=1&_t=ZS-97BE7YVjPds" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
             <a href="mailto:correo@geely.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/527772807655" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/527772807655" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
 </header>
@@ -254,7 +537,7 @@
 <!-- Botón Flotante WA -->
 <div class="wa-float">
     <div class="wa-tooltip" id="wa-tooltip">Hola soy Berenice con gusto puedo atenderte 👋</div>
-    <a href="https://wa.me/527772807655" class="wa-btn" target="_blank">
+    <a href="https://wa.me/527772807655" class="wa-btn" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
 </div>
@@ -273,10 +556,10 @@
     <h2>DESCUBRE TU PRÓXIMO GEELY</h2>
 
     <div class="glass-pills">
-        <button class="glass-pill active" onclick="switchCategory('gasolina')">
+        <button class="glass-pill active" onclick="switchCategory('gasolina', this)">
             <i class="fas fa-gas-pump"></i> GASOLINA
         </button>
-        <button class="glass-pill" onclick="switchCategory('eco')">
+        <button class="glass-pill" onclick="switchCategory('eco', this)">
             <i class="fas fa-charging-station"></i> HÍBRIDO/ELÉCTRICO
         </button>
     </div>
@@ -289,7 +572,7 @@
             <div class="car-image-container">
                 <img id="display-img" src="https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/monjaro.webp" alt="Auto Geely">
             </div>
-            <a href="#" id="display-cta" target="_blank" class="glass-btn">
+            <a href="#" id="display-cta" target="_blank" rel="noopener noreferrer" class="glass-btn">
                 <i class="fab fa-whatsapp"></i> Pedir más información
             </a>
         </div>
@@ -354,13 +637,26 @@
 </section>
 
 <!-- Galería -->
-<section id="galeria">
-    <h2 class="section-title">EVIDENCIA DE ENTREGAS</h2>
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&q=80" alt="Entrega">
-        <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80" alt="Entrega">
-        <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80" alt="Entrega">
-        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80" alt="Entrega">
+<section id="galeria" class="deliveries-section">
+    <div class="deliveries-wrap">
+        <h2 class="section-title">EVIDENCIA DE ENTREGAS</h2>
+        <p class="deliveries-intro">Un vistazo a algunas entregas recientes para clientes GEELY en Cuernavaca, presentadas en un carrusel más visual y dinámico.</p>
+
+        <div class="deliveries-carousel">
+            <button class="delivery-arrow" type="button" onclick="moveDelivery(-1)" aria-label="Entrega anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="deliveries-viewport">
+                <div class="deliveries-track" id="deliveries-track"></div>
+            </div>
+
+            <button class="delivery-arrow" type="button" onclick="moveDelivery(1)" aria-label="Siguiente entrega">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="deliveries-dots" id="deliveries-dots"></div>
     </div>
 </section>
 
@@ -475,13 +771,15 @@
         }, 200);
     }
 
-    function switchCategory(category) {
+    function switchCategory(category, trigger) {
         currentCategory = category;
         currentCarIndex = 0;
 
         // Actualizar UI de los pills
         document.querySelectorAll('.glass-pill').forEach(btn => btn.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+        if (trigger) {
+            trigger.classList.add('active');
+        }
 
         renderCar();
     }
@@ -594,6 +892,81 @@
                 </div>
             `;
     });
+
+    // 8. Carrusel de entregas
+    const deliveryItems = [
+        {
+            name: "Cityray",
+            image: "https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/cityraybere.jpeg",
+            note: "Entrega reciente con enfoque en diseño, tecnología y experiencia premium."
+        },
+        {
+            name: "Emgrand",
+            image: "https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/emgrandbere.jpeg",
+            note: "Un sedán que sigue conquistando por confort, eficiencia y presencia."
+        },
+        {
+            name: "EX5",
+            image: "https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/geelyex5bere.jpeg",
+            note: "Entrega enfocada en movilidad eléctrica con una experiencia elegante."
+        },
+        {
+            name: "EX5 EM-i",
+            image: "https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/geelyex5emibere.jpeg",
+            note: "Híbrido enchufable para clientes que buscan innovación sin renunciar a comodidad."
+        },
+        {
+            name: "Starray",
+            image: "https://raw.githubusercontent.com/David-ElPro/asesoraberenicegeely/main/MEDIA/geelystarraybere.jpeg",
+            note: "Una entrega con carácter moderno y gran diseño exterior."
+        }
+    ];
+
+    const deliveriesTrack = document.getElementById('deliveries-track');
+    const deliveriesDots = document.getElementById('deliveries-dots');
+    let currentDeliveryIndex = 0;
+
+    function renderDeliveries() {
+        deliveriesTrack.innerHTML = '';
+        deliveriesDots.innerHTML = '';
+
+        deliveryItems.forEach((item, index) => {
+            deliveriesTrack.innerHTML += `
+                <article class="delivery-card" aria-label="${item.name}">
+                    <img src="${item.image}" alt="Entrega GEELY ${item.name}">
+                    <div class="delivery-caption">
+                        <span><i class="fas fa-car"></i> Entrega GEELY</span>
+                        <h3>${item.name}</h3>
+                        <p>${item.note}</p>
+                    </div>
+                </article>
+            `;
+
+            deliveriesDots.innerHTML += `
+                <button class="delivery-dot${index === 0 ? ' active' : ''}" type="button" aria-label="Ir a ${item.name}" onclick="goToDelivery(${index})"></button>
+            `;
+        });
+        updateDeliveries();
+    }
+
+    function updateDeliveries() {
+        deliveriesTrack.style.transform = `translateX(-${currentDeliveryIndex * 100}%)`;
+        document.querySelectorAll('.delivery-dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentDeliveryIndex);
+        });
+    }
+
+    function moveDelivery(direction) {
+        currentDeliveryIndex = (currentDeliveryIndex + direction + deliveryItems.length) % deliveryItems.length;
+        updateDeliveries();
+    }
+
+    function goToDelivery(index) {
+        currentDeliveryIndex = index;
+        updateDeliveries();
+    }
+
+    renderDeliveries();
 </script>
 </body>
 </html>
