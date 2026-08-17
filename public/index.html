@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Berenice Román - Asesora GEELY</title>
+  <title>Berenice Róman | Asesora GEELY Cuernavaca</title>
+  <meta name="description" content="Berenice Róman, asesora GEELY en Cuernavaca. Agenda tu prueba de manejo, conoce modelos GEELY y contáctala por WhatsApp.">
+  <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/svg+xml" href="/MEDIA/favico.svg">
+  <link rel="canonical" href="/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Berenice Róman | Asesora GEELY Cuernavaca">
+  <meta property="og:title" content="Berenice Róman | Asesora GEELY Cuernavaca">
+  <meta property="og:description" content="Agenda tu prueba de manejo y descubre los modelos GEELY con Berenice Róman en Cuernavaca.">
+  <meta property="og:image" content="/MEDIA/Entregas/cityraybere.jpeg">
+  <meta property="og:image:alt" content="Entrega GEELY Cityray con Berenice Róman">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Berenice Róman | Asesora GEELY Cuernavaca">
+  <meta name="twitter:description" content="Agenda tu prueba de manejo y descubre los modelos GEELY con Berenice Róman en Cuernavaca.">
+  <meta name="twitter:image" content="/MEDIA/Entregas/cityraybere.jpeg">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -288,6 +304,20 @@
       color: #666;
       font-size: 1rem;
     }
+    .deliveries-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(0, 51, 160, 0.08);
+      border: 1px solid rgba(0, 51, 160, 0.12);
+      color: #223;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    .deliveries-hint i { color: var(--primary); }
     .deliveries-carousel {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr) auto;
@@ -299,6 +329,9 @@
       border-radius: 24px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.12);
       background: #0d0d0d;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
     }
     .deliveries-track {
       display: flex;
@@ -600,6 +633,70 @@
       opacity: 0.7;
     }
 
+    .qr-section {
+      padding: 80px 5% 40px;
+      background: linear-gradient(180deg, #f6f7fb 0%, #ebeef5 100%);
+    }
+    .qr-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .qr-copy {
+      display: grid;
+      gap: 14px;
+      justify-items: start;
+    }
+    .qr-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(0,51,160,0.08);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .qr-copy h2 {
+      font-size: clamp(2.2rem, 6vw, 3.3rem);
+      line-height: 0.95;
+      margin: 0;
+    }
+    .qr-copy p {
+      max-width: 540px;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .qr-image-card {
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      border-radius: 24px;
+      background: #000;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+    .qr-image-card img {
+      width: min(100%, 320px);
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      background: white;
+    }
+    .qr-note {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
     .d-none { display: none !important; }
 
     .reveal-on-scroll {
@@ -692,7 +789,14 @@
         grid-template-columns: 1fr;
       }
       .delivery-arrow {
-        display: none;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        background: rgba(255,255,255,0.95);
       }
       .delivery-card {
         aspect-ratio: 4 / 5;
@@ -713,6 +817,24 @@
       .footer-socials a {
         flex: 1 1 140px;
         max-width: 220px;
+      }
+      .qr-section {
+        padding: 60px 5% 30px;
+      }
+      .qr-wrap {
+        grid-template-columns: 1fr;
+        padding: 18px;
+        gap: 18px;
+      }
+      .qr-copy {
+        justify-items: center;
+        text-align: center;
+      }
+      .qr-copy p {
+        max-width: 100%;
+      }
+      .qr-image-card img {
+        width: min(100%, 280px);
       }
       .wa-float { right: 16px; bottom: 16px; gap: 8px; }
       .wa-tooltip {
@@ -892,6 +1014,7 @@
   <div class="deliveries-wrap">
     <h2 class="section-title">EVIDENCIA DE ENTREGAS</h2>
     <p class="deliveries-intro">Un vistazo a algunas entregas recientes para clientes GEELY en Cuernavaca, presentadas en un carrusel más visual y dinámico.</p>
+    <div class="deliveries-hint"><i class="fas fa-hand-pointer"></i> Desliza a los lados o usa las flechas</div>
 
     <div class="deliveries-carousel">
       <button class="delivery-arrow" type="button" onclick="moveDelivery(-1)" aria-label="Entrega anterior">
@@ -925,6 +1048,21 @@
   <p style="text-align: center; margin-bottom: 20px; font-weight: 600;">Av Río Mayo 505, Vista Hermosa, 62290 Cuernavaca, Mor.</p>
   <div class="map-container">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.2251025514674!2d-99.21950000000001!3d18.9214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce75b6bbbc3ba5%3A0x86131c0e816a1b80!2sAv.%20R%C3%ADo%20Mayo%20505%2C%20Vista%20Hermosa%2C%2062290%20Cuernavaca%2C%20Mor.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- QR Sitio -->
+<section class="qr-section reveal-on-scroll">
+  <div class="qr-wrap">
+    <div class="qr-copy">
+      <span class="qr-badge"><i class="fas fa-qrcode"></i> Scanea mi sitio web</span>
+      <h2>Conoce GEELY en un vistazo</h2>
+      <p>Escanea este código QR para abrir el sitio web de Berenice Róman y consultar modelos, horarios, entregas y contacto directo desde tu celular.</p>
+      <p class="qr-note">Ideal para compartir en la agencia, tarjetas, lonas o material impreso.</p>
+    </div>
+    <div class="qr-image-card">
+      <img src="/MEDIA/qr-sitio.png" alt="Código QR del sitio web de Berenice Róman">
+    </div>
   </div>
 </section>
 
@@ -1219,6 +1357,7 @@
     ];
 
   const deliveriesTrack = document.getElementById('deliveries-track');
+  const deliveriesViewport = document.querySelector('.deliveries-viewport');
   const deliveriesDots = document.getElementById('deliveries-dots');
   let currentDeliveryIndex = 0;
 
@@ -1263,6 +1402,38 @@
   }
 
   renderDeliveries();
+
+  let deliveryTouchStartX = 0;
+  let deliveryTouchEndX = 0;
+  const swipeThreshold = 45;
+
+  function handleDeliverySwipe() {
+    const delta = deliveryTouchEndX - deliveryTouchStartX;
+    if (Math.abs(delta) < swipeThreshold) return;
+    moveDelivery(delta < 0 ? 1 : -1);
+  }
+
+  if (deliveriesViewport) {
+    deliveriesViewport.addEventListener('touchstart', (e) => {
+      deliveryTouchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    deliveriesViewport.addEventListener('touchend', (e) => {
+      deliveryTouchEndX = e.changedTouches[0].clientX;
+      handleDeliverySwipe();
+    }, { passive: true });
+
+    deliveriesViewport.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      deliveryTouchStartX = e.clientX;
+    });
+
+    deliveriesViewport.addEventListener('pointerup', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      deliveryTouchEndX = e.clientX;
+      handleDeliverySwipe();
+    });
+  }
 
   // 9. Reveal on scroll
   const revealTargets = document.querySelectorAll('.reveal-on-scroll');
